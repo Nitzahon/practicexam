@@ -1,6 +1,31 @@
 import React, { Component } from 'react'
+import {Link} from 'react-router-dom'
 
 export default class Home extends Component {
+  //rconst
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+
+       
+    }
+  }
+  
+
+
+  addName=(e)=>
+  {
+    if(e.target.value!=='')
+    {
+      this.setState({name:e.target.value});
+    }
+
+  }
+  createGame=()=>
+  {
+    this.props.createGame(this.state.name);
+  }
   render() {
     return (
       <div>
@@ -9,7 +34,7 @@ export default class Home extends Component {
         <br/><br/><br/>
         <input onChange={this.addName} placeholder="Enter Your Name"></input>
          <br/><br/><br/> 
-         <button value="p-3 mb-2 bg-info text-white">Light Blue</button>
+         <Link to='/game' ><button onClick={this.createGame} value="p-3 mb-2 bg-info text-white">Start</button></Link>
       </div>
     )
   }
